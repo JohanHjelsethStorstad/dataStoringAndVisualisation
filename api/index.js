@@ -6,5 +6,4 @@ startStream();
 setInterval(() => {
     n++
     console.log(getData())
-    if (n > 1000) endStream();
 }, 100)
