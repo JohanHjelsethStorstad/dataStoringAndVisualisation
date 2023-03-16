@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  mongoDB:
+    container_name: db
+    image: mongo:latest
+    restart: always
+    volumes:
+      - db:/data/db
+  api:
+  
+
