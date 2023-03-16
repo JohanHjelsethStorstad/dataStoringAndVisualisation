@@ -6,7 +6,7 @@ services:
     image: mongo:latest
     restart: always
     volumes:
-      - db:/data/db
+      - dbDEV:/data/db
 
   api:
     build: ./api #Will use Dockerfile as default
@@ -19,5 +19,4 @@ services:
       - db
 
 volumes:
-  db: {}
-
+  dbDEV: {}
