@@ -7,6 +7,8 @@ services:
     restart: always
     volumes:
       - db:/data/db
+    ports:
+      - 1000:27017
 
   api:
     build: ./api #Will use Dockerfile as default
@@ -14,7 +16,7 @@ services:
       - 3000:3000
     environment:
       PORT: 3000
-      DB_URI: mongodb://db:27017
+      DB_URI: mongodb://db:27017/prod
     depends_on:
       - db
 
