@@ -1,8 +1,7 @@
 //This function simulates a sensor for the purpose of demonstration.
-//three data atributes live in the HEAP and can be accessed by return value
-
+//three data atributes live in the HEAP and can be accessed by returned getter.
 const sensor = (interval) => {
-    let data = {}
+    const data = {}
     const periodSin = 100000 //in ms
     const periodCos = 100000 
     const getData = () => {

@@ -1,0 +1,1 @@
+const [getData, startStream, endStream] = sensor(1000);
