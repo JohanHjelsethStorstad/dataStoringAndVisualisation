@@ -9,6 +9,10 @@ services:
       - db:/data/db
     ports:
       - 1000:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${adminUser}
+      - MONGO_INITDB_ROOT_PASSWORD=${adminPassword}
+      - MONGO_INITDB_DATABASE=${prodDB}
 
   api:
     build: ./api #Will use Dockerfile as default
@@ -16,7 +20,11 @@ services:
       - 3000:3000
     environment:
       PORT: 3000
-      DB_URI: mongodb://db:27017/prod
+      DB_URI: mongodb://db:27017/${prodDB}
+      DB_USERNAME: ${adminUser} #Uses admin user for now. hav  not got others working.
+      DB_PASSWORD: ${adminPassword}
+      DB: ${prodDB}
+
     depends_on:
       - db
 
