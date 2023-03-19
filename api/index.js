@@ -1,10 +1,9 @@
 import express from 'express';
-import sensor from "./sensor.js"
-import dbConnect from "./db/dbConnect.js";
+import { getMeasturments } from './routes/measurements';
+import { getFrequencies } from './routes/frequencies';
 import dotenv from 'dotenv'
 dotenv.config()
-const [getData, startStream, endStream] = sensor(1000);
-dbConnect();
+
 const app = express();
 
 app.use('/', () => {
@@ -12,9 +11,8 @@ app.use('/', () => {
     //USE THIS TO FOR EXAMPLE CHECK CREDENTIALS
     console.log('I ran just because somone accessed the api.')
 })
-app.get('/measurements', (req, res) => {
-
-})
+app.get('/measurements', getMeasturments)
+app.get('/frequencies', getFrequencies)
 
 const { PORT } = process.env
 app.listen({ port: PORT }, () => {

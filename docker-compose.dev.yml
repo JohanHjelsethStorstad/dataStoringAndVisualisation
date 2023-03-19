@@ -30,6 +30,12 @@ services:
       DB: ${devDB}
     depends_on:
       - db
+  
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: ./Dockerfile.dev
+
 
 volumes:
   db: {}
