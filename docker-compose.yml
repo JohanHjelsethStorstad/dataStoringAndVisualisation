@@ -24,9 +24,15 @@ services:
       DB_USERNAME: ${adminUser} #Uses admin user for now. hav  not got others working.
       DB_PASSWORD: ${adminPassword}
       DB: ${prodDB}
-
     depends_on:
       - db
+  
+  frontend:
+    build: ./frontend
+    ports:
+      - 8080:8080
+    environment:
+      PORT: 8080
 
 volumes:
   db: {}
