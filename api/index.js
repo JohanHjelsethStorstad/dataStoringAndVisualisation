@@ -1,6 +1,6 @@
 import express from 'express';
-import { getMeasturments } from './routes/measurements';
-import { getFrequencies } from './routes/frequencies';
+import { getMeasturments } from './routes/measurements.js';
+import { getFrequencies } from './routes/frequencies.js';
 import dotenv from 'dotenv'
 dotenv.config()
 

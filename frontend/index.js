@@ -3,8 +3,10 @@ import path from 'path'
 
 const app = express()
 
+app.use('/static', express.static(path.resolve('public', 'static')))
+
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve('public', 'index.html'))
+    res.sendFile(path.resolve('public', 'routes', 'index.html'))
 })
 
 app.listen(process.env.PORT, () => {
