@@ -8,6 +8,7 @@ if (!cached) {
 
 const dbConnect = async (ret = () => console.log("conneted to db"), uri) => {
   const MONGODB_URI = uri || process.env.DB_URI
+  console.log("try conecting to: " + MONGODB_URI)
   if (cached.conn) {
     return cached.conn
   }

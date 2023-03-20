@@ -12,6 +12,7 @@ html {
     --darkBlue: #173F5F;
     --blue: #20639B;
     --green: #3CAEA3;
+    --darkGreen: #308f85;
     --red: #ED553B;
 }
 
@@ -33,6 +34,8 @@ header {
 }
 .constrols>#sensorState {
     grid-area: state;
+    text-align: center;
+    font-size: 15px;
 }
 
 .btn {
@@ -44,4 +47,10 @@ header {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    margin: 10px;
+}
+
+.btn:hover {
+    background-color: var(--darkGreen);
+    cursor: pointer;
 }

@@ -2,7 +2,7 @@
 //three data atributes live in the HEAP and can be accessed by returned getter.
 //think of it as a singleton
 const sensor = (interval) => {
-    const data = {}
+    let data = {}
     const periodSin = 100000 //in ms
     const periodCos = 100000 
     const getData = () => {

@@ -9,10 +9,10 @@ services:
       - db:/data/db
     ports:
       - 1000:27017
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=${adminUser}
-      - MONGO_INITDB_ROOT_PASSWORD=${adminPassword}
-      - MONGO_INITDB_DATABASE=${devDB}
+    #environment:
+     # - MONGO_INITDB_ROOT_USERNAME=${adminUser}
+     # - MONGO_INITDB_ROOT_PASSWORD=${adminPassword}
+     # - MONGO_INITDB_DATABASE=${devDB}
 
   api:
     build: 
@@ -25,8 +25,8 @@ services:
     environment:
       PORT: 3000
       DB_URI: mongodb://db:27017/${devDB}
-      DB_USERNAME: ${admin} #Uses admin user for now. hav  not got others working.
-      DB_PASSWORD: ${adminPassword}
+      #DB_USERNAME: ${adminUser} 
+      #DB_PASSWORD: ${adminPassword}
       DB: ${devDB}
     depends_on:
       - db

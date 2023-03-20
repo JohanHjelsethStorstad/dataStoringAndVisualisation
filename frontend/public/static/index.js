@@ -1,8 +1,8 @@
 const ctx = document.getElementById('noiceCanvas')
 
-fetch('http://localhost:3000/measurements').then(res => JSON.parse(res)).then(data => {
+fetch('http://localhost:3000/measurements').then(res => res.json()).then(data => {
     console.log(data)
-}) 
+}).catch(console.error)
 
 const noiceCart = new Chart(ctx, {
     type: 'line',
@@ -23,17 +23,19 @@ const noiceCart = new Chart(ctx, {
 })
 
 function setSensor(bool) {
-  fetch('http://localhost:3000/measurements', { 
-    method: 'PUT', 
-    body: JSON.stringify({state: bool}) 
+  fetch('http://localhost:3000/sensor', { 
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ state: bool })
   }).then(() => {
     getSensorState()
-  })
+  }).catch(console.error)
 }
 
 function getSensorState() {
-  fetch('http://localhost:3000/measurements').then(res => JSON.parse(res)).then(data => {
-    console.log(data)
-    document.getElementById('sensorState').innerHTML = data
-  })
+  fetch('http://localhost:3000/sensor').then(res => res.json()).then(({ state }) => {
+    console.log(state)
+    document.getElementById('sensorState').innerHTML = "the sensor is " + (state ? "on" : "off")
+  }).catch(console.error)
 }
+getSensorState()
