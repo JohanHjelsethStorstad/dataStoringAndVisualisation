@@ -1,26 +1,33 @@
-const ctx = document.getElementById('noiceCanvas')
+const ctx = document.getElementById('canvas')
 
-fetch('http://localhost:3000/measurements').then(res => res.json()).then(data => {
-    console.log(data)
-}).catch(console.error)
-
-const noiceCart = new Chart(ctx, {
+fetch('http://localhost:3000/measurements').then(res => res.json()).then(({ measturments }) => {
+  const times = measturments.map(x => x.time)
+  const noice = measturments.map(x => x.noice)
+  const pollution = measturments.map(x => x.pollution)
+  const chart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: [],
-      datasets: [{
-        data: [{x: 2, y:1, x:3, y:6}],
+      labels: times,
+      datasets: [
+      {
+        data: noice,
         label: "noice",
-      }]
+      },
+      {
+        data: pollution,
+        label: "pollution",
+      },
+    ]
     },
     options: {
-        scales: {
-          x: {
-            type: 'linear',
-          },
+      scales: {
+        x: {
+          type: 'linear',
         },
-      }
-})
+      },
+    }
+  })
+}).catch(console.error)
 
 function setSensor(bool) {
   fetch('http://localhost:3000/sensor', { 
