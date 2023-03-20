@@ -41,6 +41,7 @@ services:
       - ./frontend:/usr/src
     environment:
       PORT: 8080
+      PROXY_API: http://api:3000/
 
 volumes:
   db: {}

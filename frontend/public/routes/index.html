@@ -5,10 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script async defer src="static/index.js"></script>
         <link rel="stylesheet" type="text/css" href="static/index.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- chart.js -->
     </head>
     <body>
         <header>
             <h1>Super cool data panel</h1>
         </header>
+        <div class="constrols">
+            <div id="sensorState"></div>
+            <button onclick="setSensor(true)" class="btn">start sensor</button>
+            <button onclick="setSensor(false)" class="btn">stop sensor</button>
+        </div>
+      
+        <div class="noiceChart">
+            <canvas id="noiceCanvas"></canvas>
+        </div>
     </body>
 </html>

@@ -1,4 +1,47 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 html {
-    font-family: "";
-    font-size: 10px;
+    font-family: "arial";
+    font-size: 12px;
+}
+
+:root {
+    --darkBlue: #173F5F;
+    --blue: #20639B;
+    --green: #3CAEA3;
+    --red: #ED553B;
+}
+
+header {
+    display: grid;
+    place-items: center;
+    min-height: 10vh;
+    background-color: var(--blue);
+    margin-bottom: 10px;
+}
+
+.constrols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "state state"
+        ". .";
+}
+.constrols>#sensorState {
+    grid-area: state;
+}
+
+.btn {
+    background-color: var(--green); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }

@@ -1,5 +1,6 @@
 //This function simulates a sensor for the purpose of demonstration.
 //three data atributes live in the HEAP and can be accessed by returned getter.
+//think of it as a singleton
 const sensor = (interval) => {
     const data = {}
     const periodSin = 100000 //in ms
@@ -23,8 +24,9 @@ const sensor = (interval) => {
         dataStream = null
         data = {}
     }
+    const isOn = () => !(dataStream == null)
     
-    return [getData, startStream, endStream]
+    return [getData, startStream, endStream, isOn]
 }
 
 export default sensor;
